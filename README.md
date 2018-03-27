@@ -2,6 +2,7 @@
 
 [![](https://www.jitpack.io/v/wapchief/LikeStarAnimation.svg)](https://www.jitpack.io/#wapchief/LikeStarAnimation)
 
+![](https://github.com/wapchief/LikeStarAnimation/blob/master/device_screenshots.gif?raw=true)
 
 To get a Git project into your build:
 
