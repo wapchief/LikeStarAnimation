@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mHeartLayout = findViewById(R.id.heart_layout);
         mImageView = findViewById(R.id.btn_like);
+        //自定义资源
+//        mHeartLayout.setDrawableIds(new int[]{R.drawable.icon_like_png,R.drawable.icon_like_png,R.drawable.ic_launcher_foreground,R.mipmap.ic_launcher});
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

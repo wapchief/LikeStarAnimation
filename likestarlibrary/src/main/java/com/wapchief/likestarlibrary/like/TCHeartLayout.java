@@ -21,7 +21,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
@@ -95,6 +94,7 @@ public class TCHeartLayout extends RelativeLayout {
         a.recycle();
     }
 
+
     @Override
     public void clearAnimation() {
         for (int i = 0; i < getChildCount(); i++) {
@@ -110,25 +110,39 @@ public class TCHeartLayout extends RelativeLayout {
             mHeartsDrawable[i] = new BitmapDrawable(getResources(), mHearts[i]);
         }
     }
-    private static int[] drawableIds = new int[]{R.drawable.heart0, R.drawable.heart1, R.drawable.heart2,
+    public int[] drawableIds = new int[]{R.drawable.heart0, R.drawable.heart1, R.drawable.heart2,
             R.drawable.heart3, R.drawable.heart4, R.drawable.heart5,
             R.drawable.heart6, R.drawable.heart7, R.drawable.heart8,};
     private Random mRandom = new Random();
     private static Drawable[] sDrawables;
     private Bitmap[] mHearts;
     private BitmapDrawable[] mHeartsDrawable;
+
     private void initHeartDrawable() {
         int size = drawableIds.length;
         sDrawables = new Drawable[size];
         for (int i = 0 ; i < size; i++) {
-            sDrawables[i] = ContextCompat.getDrawable(mContext,drawableIds[i]);
+            sDrawables[i] =getResources().getDrawable(drawableIds[i]);
         }
         resourceLoad();
     }
 
+    public int[] getDrawableIds() {
+        return drawableIds;
+    }
+
+    /**
+     * 自定义点赞图片数组
+     * @param drawableIds 资源id
+     */
+    public void setDrawableIds(int[] drawableIds) {
+        this.drawableIds = drawableIds;
+        initHeartDrawable();
+    }
+
     public void addFavor() {
         TCHeartView heartView = new TCHeartView(getContext());
-        heartView.setDrawable(mHeartsDrawable[mRandom.nextInt(8)]);
+        heartView.setDrawable(mHeartsDrawable[mRandom.nextInt(getDrawableIds().length-1)]);
 //        heartView.setImageDrawable(sDrawables[random.nextInt(8)]);
 //        init(attrs, defStyleAttr);
         mAnimator.start(heartView, this);
