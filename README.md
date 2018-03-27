@@ -1,8 +1,10 @@
 # LikeStarAnimation
 
+![](https://github.com/wapchief/LikeStarAnimation/blob/master/device_screenshots.gif?raw=true)
+
+
 [![](https://www.jitpack.io/v/wapchief/LikeStarAnimation.svg)](https://www.jitpack.io/#wapchief/LikeStarAnimation)
 
-![](https://github.com/wapchief/LikeStarAnimation/blob/master/device_screenshots.gif?raw=true)
 
 To get a Git project into your build:
 
@@ -24,7 +26,7 @@ Step 2. Add the dependency
 
 ```
 	dependencies {
-	        compile 'com.github.wapchief:LikeStarAnimation:1.0.0'
+	        compile 'com.github.wapchief:LikeStarAnimation:1.0.2'
 	}
 ```
 
@@ -42,10 +44,16 @@ Step 3. add .xml View
 
 ```
 
-Step 3. OnClick show
+Step 4. OnClick show
 
 ```
             public void onClick(View v) {
                 mHeartLayout.addFavor();
             }
+```
+
+#### Other The custom
+
+```
+mHeartLayout.setDrawableIds(new int[]{R.drawable.img});
 ```
