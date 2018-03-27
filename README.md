@@ -26,3 +26,25 @@ Step 2. Add the dependency
 	        compile 'com.github.wapchief:LikeStarAnimation:1.0.0'
 	}
 ```
+
+
+Step 3. add .xml View
+
+```
+        <com.wapchief.likestarlibrary.like.TCHeartLayout
+            android:id="@+id/heart_layout"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:focusable="true" />
+
+```
+
+Step 3. OnClick show
+
+```
+            public void onClick(View v) {
+                mHeartLayout.addFavor();
+            }
+```
