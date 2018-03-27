@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.wapchief'
 android {
     compileSdkVersion 26
 
@@ -32,13 +33,3 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
-
-publish {
-    userOrg = 'wapchief'//bintray.com用户名
-    groupId = 'com.wapchief'//jcenter上的路径
-    artifactId = 'LikeStarAnimation'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = 'this is model for android'//描述
-    website = 'https://github.com/wapchief/LikeStarAnimation'//网站github上的地址
-}
-

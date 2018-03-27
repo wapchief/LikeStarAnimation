@@ -27,7 +27,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.wapchief.livertmpandroid.R;
+import com.wapchief.likestarlibrary.R;
 
 /**
  * 飘心动画心形界面类
