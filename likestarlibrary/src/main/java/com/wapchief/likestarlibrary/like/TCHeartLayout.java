@@ -21,6 +21,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
@@ -35,6 +36,7 @@ import java.util.Random;
  * 通过动画控制每个心形界面的显示
  * TCPathAnimator 控制显示路径
  * TCHeartView 单个心形界面
+ * @author wapchief
  */
 public class TCHeartLayout extends RelativeLayout {
 
@@ -46,9 +48,10 @@ public class TCHeartLayout extends RelativeLayout {
     private int dWidth;
     private int initX;
     private int pointx;
-
+    private Context mContext;
     public TCHeartLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mContext = context;
         findViewById(context);
         initHeartDrawable();
         init(attrs, defStyleAttr);
@@ -60,8 +63,8 @@ public class TCHeartLayout extends RelativeLayout {
         dHeight = bitmap.getWidth();
         dWidth = bitmap.getHeight();
         textHight = sp2px(getContext(), 20) + dHeight / 2;
-
-        pointx = dWidth;//随机上浮方向的x坐标
+        //随机上浮方向的x坐标
+        pointx = dWidth;
 
         bitmap.recycle();
     }
@@ -118,7 +121,7 @@ public class TCHeartLayout extends RelativeLayout {
         int size = drawableIds.length;
         sDrawables = new Drawable[size];
         for (int i = 0 ; i < size; i++) {
-            sDrawables[i] = getResources().getDrawable(drawableIds[i]);
+            sDrawables[i] = ContextCompat.getDrawable(mContext,drawableIds[i]);
         }
         resourceLoad();
     }

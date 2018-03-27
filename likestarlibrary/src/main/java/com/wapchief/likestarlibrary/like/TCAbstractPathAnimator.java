@@ -29,6 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 飘心路径
+ * @author wapchief
  */
 public abstract class TCAbstractPathAnimator {
     private final Random mRandom;
