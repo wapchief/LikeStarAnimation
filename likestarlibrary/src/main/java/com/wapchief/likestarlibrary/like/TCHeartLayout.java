@@ -41,16 +41,21 @@ public class TCHeartLayout extends RelativeLayout {
 
     private TCAbstractPathAnimator mAnimator;
     private int defStyleAttr = 0;
-
     private int textHight;
     private int dHeight;
     private int dWidth;
     private int initX;
     private int pointx;
+    //动画长度
+    private int animalLength = 100;
+    //动画持续时间
+    private int animalTime = 1000;
     private Context mContext;
+    AttributeSet mAttributeSet;
     public TCHeartLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
+        mAttributeSet = attrs;
         findViewById(context);
         initHeartDrawable();
         init(attrs, defStyleAttr);
@@ -73,11 +78,9 @@ public class TCHeartLayout extends RelativeLayout {
         return (int) (spValue * fontScale + 0.5f);
     }
 
-
     private void init(AttributeSet attrs, int defStyleAttr) {
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.HeartLayout, defStyleAttr, 0);
-
         //todo:获取确切值
         initX = 30;
         if (pointx <= initX && pointx >= 0) {
@@ -89,8 +92,11 @@ public class TCHeartLayout extends RelativeLayout {
             pointx = initX;
         }
 
-        mAnimator = new TCPathAnimator(
-                TCAbstractPathAnimator.Config.fromTypeArray(a, initX, textHight, pointx, dWidth, dHeight));
+        TCAbstractPathAnimator.Config config = TCAbstractPathAnimator.Config
+                .fromTypeArray(a, initX, textHight, pointx, dWidth, dHeight);
+        config.animDuration = getAnimalTime();
+        mAnimator = new TCPathAnimator(config);
+        //释放资源
         a.recycle();
     }
 
@@ -148,4 +154,14 @@ public class TCHeartLayout extends RelativeLayout {
         mAnimator.start(heartView, this);
     }
 
+
+
+    public int getAnimalTime() {
+        return animalTime;
+    }
+
+    public void setAnimalTime(int animalTime) {
+        this.animalTime = animalTime;
+        init(mAttributeSet, defStyleAttr);
+    }
 }
