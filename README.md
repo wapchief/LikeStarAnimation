@@ -26,7 +26,7 @@ Step 2. Add the dependency
 
 ```
 	dependencies {
-	        compile 'com.github.wapchief:LikeStarAnimation:1.0.2'
+	        compile 'com.github.wapchief:LikeStarAnimation:1.0.3'
 	}
 ```
 
