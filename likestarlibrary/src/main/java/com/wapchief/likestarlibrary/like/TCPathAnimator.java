@@ -20,6 +20,7 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -34,6 +35,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 飘心路径动画器
  */
 public class TCPathAnimator extends TCAbstractPathAnimator {
+    private final static String TAG = "TCPathAnimator";
     private final AtomicInteger mCounter = new AtomicInteger(0);
     private Handler mHandler;
 
@@ -111,15 +113,20 @@ public class TCPathAnimator extends TCAbstractPathAnimator {
         protected void applyTransformation(float factor, Transformation transformation) {
             Matrix matrix = transformation.getMatrix();
             mPm.getMatrix(mDistance * factor, matrix, PathMeasure.POSITION_MATRIX_FLAG);
+            //设置旋转范围
             mView.setRotation(mRotation * factor);
+            //自定义算法
             float scale = 1F;
             if (3000.0F * factor < 200.0F) {
                 scale = scale(factor, 0.0D, 0.06666667014360428D, 0.20000000298023224D, 1.100000023841858D);
             } else if (3000.0F * factor < 300.0F) {
                 scale = scale(factor, 0.06666667014360428D, 0.10000000149011612D, 1.100000023841858D, 1.0D);
             }
+            Log.d(TAG, scale + "");
+            //设置缩放范围
             mView.setScaleX(scale);
             mView.setScaleY(scale);
+            //透明度
             transformation.setAlpha(1.0F - factor);
         }
     }

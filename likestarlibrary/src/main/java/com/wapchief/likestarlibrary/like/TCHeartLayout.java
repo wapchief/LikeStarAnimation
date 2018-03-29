@@ -52,6 +52,8 @@ public class TCHeartLayout extends RelativeLayout {
     private int animalTime = 1000;
     private Context mContext;
     AttributeSet mAttributeSet;
+    //自定义图片颜色
+    private int imgColor = 0;
     public TCHeartLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
@@ -133,6 +135,24 @@ public class TCHeartLayout extends RelativeLayout {
         resourceLoad();
     }
 
+    public void addFavor() {
+        TCHeartView heartView = new TCHeartView(getContext());
+        heartView.setDrawable(mHeartsDrawable[mRandom.nextInt(getDrawableIds().length-1)]);
+        if (imgColor!=0) {
+            heartView.setColor(getImgColor());
+        }
+        mAnimator.start(heartView, this);
+    }
+
+
+    public int getImgColor() {
+        return imgColor;
+    }
+
+    public void setImgColor(int imgColor) {
+        this.imgColor = imgColor;
+    }
+
     public int[] getDrawableIds() {
         return drawableIds;
     }
@@ -145,15 +165,6 @@ public class TCHeartLayout extends RelativeLayout {
         this.drawableIds = drawableIds;
         initHeartDrawable();
     }
-
-    public void addFavor() {
-        TCHeartView heartView = new TCHeartView(getContext());
-        heartView.setDrawable(mHeartsDrawable[mRandom.nextInt(getDrawableIds().length-1)]);
-//        heartView.setImageDrawable(sDrawables[random.nextInt(8)]);
-//        init(attrs, defStyleAttr);
-        mAnimator.start(heartView, this);
-    }
-
 
 
     public int getAnimalTime() {

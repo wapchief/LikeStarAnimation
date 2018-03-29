@@ -25,6 +25,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.wapchief.likestarlibrary.R;
@@ -36,6 +37,7 @@ import com.wapchief.likestarlibrary.R;
 @SuppressLint("AppCompatCustomView")
 public class TCHeartView extends ImageView {
 
+    private static String TAG = "TCHeartView";
     private static final Paint sPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
     private int mHeartResId = R.drawable.heart0;
     private int mHeartBorderResId = R.drawable.heart1;
@@ -76,7 +78,7 @@ public class TCHeartView extends ImageView {
         setColor(color);
     }
 
-    public Bitmap createHeart(int color) {
+    private Bitmap createHeart(int color) {
         if (sHeart == null) {
             sHeart = BitmapFactory.decodeResource(getResources(), mHeartResId);
         }
@@ -96,6 +98,7 @@ public class TCHeartView extends ImageView {
         p.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
         float dx = (heartBorder.getWidth() - heart.getWidth()) / 2f;
         float dy = (heartBorder.getHeight() - heart.getHeight()) / 2f;
+        Log.d(TAG, "x:"+dx + ",y:" + dy);
         canvas.drawBitmap(heart, dx, dy, p);
         p.setColorFilter(null);
         canvas.setBitmap(null);

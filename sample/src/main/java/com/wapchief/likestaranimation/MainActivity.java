@@ -1,7 +1,7 @@
 package com.wapchief.likestaranimation;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         mImageView = findViewById(R.id.btn_like);
         //自定义资源
 //        mHeartLayout.setAnimalLength(400);
+//        mHeartLayout.setImgColor(Color.parseColor("#000000"));
 //        mHeartLayout.setDrawableIds(new int[]{R.drawable.icon_like_png,R.drawable.icon_like_png,R.drawable.ic_launcher_foreground,R.mipmap.ic_launcher});
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
