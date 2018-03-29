@@ -26,7 +26,7 @@ Step 2. Add the dependency
 
 ```
 	dependencies {
-	        compile 'com.github.wapchief:LikeStarAnimation:1.0.3'
+	        compile 'com.github.wapchief:LikeStarAnimation:1.0.4'
 	}
 ```
 
@@ -55,8 +55,10 @@ Step 4. OnClick show
 #### Other The custom
 
 ```
-//res
-mHeartLayout.setDrawableIds(new int[]{R.drawable.img});
-//animation duration time
-mHeartLayout.setAnimalTime(2000);
+        //res
+        mHeartLayout.setDrawableIds(new int[]{R.drawable.img});
+        //animation duration time
+        mHeartLayout.setAnimalTime(2000);
+        //view color
+        mHeartLayout.setImgColor(Color.parseColor("#000000"));
 ```
