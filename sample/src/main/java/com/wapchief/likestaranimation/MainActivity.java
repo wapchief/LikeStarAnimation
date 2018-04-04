@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         //自定义资源
 //        mHeartLayout.setAnimalLength(400);
 //        mHeartLayout.setImgColor(Color.parseColor("#000000"));
-        mHeartLayout.setDrawableIds(new int[]{R.mipmap.ic_launcher_round,R.mipmap.ic_launcher_round,R.mipmap.ic_launcher_round,R.mipmap.ic_launcher_round});
+        mHeartLayout.setDrawableIds(new int[]{R.drawable.ic_launcher_round,R.drawable.ic_launcher_round,R.drawable.ic_launcher_round,R.drawable.ic_launcher_round});
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
