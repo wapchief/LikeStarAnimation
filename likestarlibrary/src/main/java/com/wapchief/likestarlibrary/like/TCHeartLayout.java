@@ -38,7 +38,7 @@ import java.util.Random;
  * @author wapchief
  */
 public class TCHeartLayout extends RelativeLayout {
-
+    private static String TAG = "TCHeartLayout";
     private TCAbstractPathAnimator mAnimator;
     private int defStyleAttr = 0;
     private int textHight;

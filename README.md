@@ -55,7 +55,7 @@ Step 4. OnClick show
 #### Other The custom
 
 ```
-        //res
+        //Please in drawable. mipmap possible bug
         mHeartLayout.setDrawableIds(new int[]{R.drawable.img});
         //animation duration time
         mHeartLayout.setAnimalTime(2000);
